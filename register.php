@@ -2,7 +2,10 @@
     // importing the class
     require_once("./includes/config.php");
     require_once("./includes/classes/FormSanitizer.php");
+    require_once("./includes/classes/Account.php");
+    require_once("./includes/classes/Constants.php");
 
+    $account = new Account($con); 
     
     // This checks for a form that has a post submit method,
     // and the button that performs the post is called 'submitButton'
@@ -15,7 +18,9 @@
         $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
         $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
         
-        echo $firstName.$lastName.$username.$email.$email2.$password.$password2;
+        // The register function that is executed here, will validate for any errors
+        // if there are any errors it will add the Error Message string to the Error array
+        $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
     }
 ?>
 
@@ -39,9 +44,18 @@
                 <span>to continue to Bestflix </span>
             </div>
             <form method="POST">
+                <!-- an instance of a getter function, it is used to check if a specific error exists -->
+                <?php echo $account->getError(Constants::$firstNameCharacters) ?>
                 <input type="text" name="firstName" placeholder="First name" required />
+
+                <?php echo $account->getError(Constants::$lastNameCharacters) ?>
                 <input type="text" name="lastName" placeholder="Last name" required />
+
+                <?php echo $account->getError(Constants::$usernameCharacters) ?>
+                <?php echo $account->getError(Constants::$usernameTaken) ?>
                 <input type="text" name="username" placeholder="Username" required />
+
+
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="email" name="email2" placeholder="Confirm email" required />
                 <input type="password" name="password" placeholder="Password" required />

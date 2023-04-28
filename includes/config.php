@@ -32,6 +32,7 @@
      * Sets the default timezone used by all date/time functions in a script
      */
     date_default_timezone_set("Europe/Zurich");
+    $con;
 
     try {
         // PDO, php data object
