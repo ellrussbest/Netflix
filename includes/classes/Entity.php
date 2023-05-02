@@ -32,7 +32,7 @@
                 return $this->sqlData["thumbnail"];
             }
 
-             public function getPreview() {
+            public function getPreview() {
                 return $this->sqlData["preview"];
             }
         }
