@@ -18,6 +18,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Bestflix</title>
     <link rel="stylesheet" type="text/css" href="./assets/style/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/575cb89052.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"> </script>
+
 </head>
 
 <body>
