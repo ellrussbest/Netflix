@@ -9,7 +9,9 @@
         }
 
         public function createPreviewVideo($entity) {
-            $entity = new Entity($this->con, $entity);
+
+            $entity = EntityProvider::getEntities($this->con, null, 1)[0];
+            
 
             
             $id = $entity->getId();
@@ -42,6 +44,19 @@
                     </div>
                 </div>
             </div>";
+        }
+
+        public function createEntityPreviewSquare($entity) {
+            $id = $entity->getId();
+            $thumbnail = $entity->getTumbnail();
+            $name = $entity->getName();
+
+            return "<a href='entity.php?id=$id'>
+                        <div class='previewContainer small'>
+                            <img src='$thumbnail' title='$name'>
+                        </div>
+                    </a>
+            ";
         }
     }
 ?>

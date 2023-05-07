@@ -2,6 +2,7 @@
     require_once("./includes/config.php");
     require_once("./includes/classes/PreviewProvider.php");
     require_once("./includes/classes/CategoryContainer.php");
+    require_once("./includes/classes/EntityProvider.php");
     require_once("./includes/classes/Entity.php");
     
     $userLoggedIn = $_SESSION["userLoggedIn"];
