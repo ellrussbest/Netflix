@@ -9,10 +9,7 @@
         }
 
         public function createPreviewVideo($entity) {
-
-            $entity = EntityProvider::getEntities($this->con, null, 1)[0];
-            
-
+            if(!$entity) $entity = EntityProvider::getEntities($this->con, null, 1)[0];
             
             $id = $entity->getId();
             $name = $entity->getName();
