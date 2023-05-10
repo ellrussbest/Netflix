@@ -6,7 +6,9 @@
                 $this->con = $con;
 
                 // if entity is passed explicitly
-                if($entity) {
+                if(is_array($entity)) {
+                    $this->sqlData = $entity;
+                }else if(is_string($entity)) {
                     $query = $this->con->prepare("SELECT * FROM entities WHERE id=:id");
                     $query->bindValue(":id", $entity, PDO::PARAM_INT);
                     $query->execute();
@@ -35,11 +37,11 @@
                 return $this->sqlData["preview"];
             }
 
-            public function getSeasons($entity) {
+            public function getSeasons() {
                 $query = $this->con->prepare("SELECT * FROM videos WHERE entityId=:id
                                         AND isMovie=0 ORDER BY season, episode ASC");
                 
-                $query->bindValue(":id", $entity->getId());
+                $query->bindValue(":id", $this->getId());
                 $query->execute();
                 
                 $season = array();
@@ -47,9 +49,25 @@
                 $currentSeason = null;
 
                 while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    
+                    // the currentSeason will not be changed after every iteration
+                    // this way it can always be initialized
+                    // but when we continue looping over our data, the season row of our data is bound to change
+                    // so when if this changes it will not match with the current array and maybe we can take action
+                    // the action would be to push all our video objects that we created to the current season the update the current season
+                    if($currentSeason != null && $currentSeason != $row["season"]) {
+                        $seasons[] = new Season($currentSeason, $videos);
+                        $videos = array();
+                    }
                     $currentSeason = $row["season"];
-                    $videos[] = new Video($this->con, $row);
+
+                    // we will continue pushing new video objects until the currentSeason variable is not
+                    // equal to row['season']
+                    $videos[] = new Video($this->con, $row); 
                 }
+                if(sizeof($videos) != 0) $seasons[] = new Season($currentSeason, $videos);
+
+                return $seasons;
             }
         }
 ?>

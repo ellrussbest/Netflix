@@ -4,9 +4,11 @@
             
         public function __construct($con, $entity) {
             $this->con = $con;
-
+            
             // if entity is passed explicitly
-            if($entity) {
+            if(is_array($entity)) {
+                $this->sqlData = $entity;
+            }else if(is_string($entity)) {
                 $query = $this->con->prepare("SELECT * FROM entities WHERE id=:id");
                 $query->bindValue(":id", $entity, PDO::PARAM_INT);
                 $query->execute();
@@ -18,7 +20,7 @@
                 $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
             }
 
-            $this->entity = new Entity($con, $sqlData["entityId"]);
+            $this->entity = new Entity($con, $this->sqlData["entityId"]);
         }
 
     }

@@ -22,4 +22,41 @@
 - On the entity page, we will also show a preview of the video
 - below the preview, we want to show different seasons and every episode of each season
 - remember we have the entity id, and we will use the entity id to query all the videos with that specific entity id
-- The idea here is that each season will have an array for their videos.
+- this means we have to use the entity object through the entity id to get all the seasons for a given entity
+- The data that comes to the front end looks a little bit like the folloing
+```
+    {
+            name: "Michael Jackson Is the Best",
+            season: 1,
+            episode: 1
+        },
+        {
+            name: "Michael Jackson Is the Best",
+            season: 1,
+            episode: 2
+        },
+        {
+            name: "Michael Jackson Is the Best",
+            season: 1,
+            episode: 3
+        },
+        {
+            name: "Michael Jackson Is the Best",
+            season: 2,
+            episode: 1
+        },
+        {
+            name: "Michael Jackson Is the Best",
+            season: 2,
+            episode: 2
+        },
+        {
+            name: "Michael Jackson Is the Best",
+            season: 2,
+            episode: 3
+    }
+```
+- The thing that we want to do is to create a videos array that will store all the video objects.
+- Then we will create a seasons array that will store all the seasons objects.
+- so the season array in our case will hold 2 season objects and each season object will have an array of video objects (That's the idea!)
+- In our while loop when we hit the next season, we will first push all the videos on the array to the the season array
