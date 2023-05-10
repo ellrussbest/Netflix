@@ -14,7 +14,7 @@
             $id = $entity->getId();
             $name = $entity->getName();
             $preview = $entity->getPreview();
-            $thumbnail = $entity->getTumbnail();
+            $thumbnail = $entity->getThumbnail();
 
             // TODO: ADD SUBTITLE
 
@@ -45,7 +45,7 @@
 
         public function createEntityPreviewSquare($entity) {
             $id = $entity->getId();
-            $thumbnail = $entity->getTumbnail();
+            $thumbnail = $entity->getThumbnail();
             $name = $entity->getName();
 
             return "<a href='entity.php?id=$id'>

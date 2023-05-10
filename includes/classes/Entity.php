@@ -29,12 +29,16 @@
                 return $this->sqlData["name"];
             }
 
-            public function getTumbnail() {
+            public function getThumbnail() {
                 return $this->sqlData["thumbnail"];
             }
 
             public function getPreview() {
                 return $this->sqlData["preview"];
+            }
+
+            public function getCategoryId() {
+                return $this->sqlData["categoryId"];
             }
 
             public function getSeasons() {

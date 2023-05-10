@@ -19,6 +19,8 @@
         }
     }
 ```
+
+# Entity page
 - On the entity page, we will also show a preview of the video
 - below the preview, we want to show different seasons and every episode of each season
 - remember we have the entity id, and we will use the entity id to query all the videos with that specific entity id
@@ -60,3 +62,7 @@
 - Then we will create a seasons array that will store all the seasons objects.
 - so the season array in our case will hold 2 season objects and each season object will have an array of video objects (That's the idea!)
 - In our while loop when we hit the next season, we will first push all the videos on the array to the the season array
+
+- at the bottom of the entity page, you'll see that "you might also suggestions"
+- to achieve this, on the entity.php page, we already have the Entity that we are watching
+- To make suggestions, we are going to pull all thumbnails of movies and videos etc. of the catgories with the same entity Id  
