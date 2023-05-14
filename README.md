@@ -65,4 +65,6 @@
 
 - at the bottom of the entity page, you'll see that "you might also suggestions"
 - to achieve this, on the entity.php page, we already have the Entity that we are watching
-- To make suggestions, we are going to pull all thumbnails of movies and videos etc. of the catgories with the same entity Id  
+- To make suggestions, we are going to pull all thumbnails of movies and videos etc. of the catgories with the same entity Id
+
+- we create a videoProgress table that will keep the progress of the user as they watch a particular video

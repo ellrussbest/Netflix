@@ -13,3 +13,33 @@ function previewEnded() {
     $(".previewVideo").toggle();
     $(".previewImage").toggle();
 }
+
+function goBack() {
+  window.history.back();
+}
+
+function startHideTimer() {
+  let timeout = null;
+  $(document).on("mousemove", () => {
+    clearTimeout(timeout);
+    $(".watchNav").fadeIn();
+
+    timeout = setTimeout(() => {
+      $(".watchNav").fadeOut();
+    }, 2000)
+
+  })
+}
+
+function initVideo(videoId, username) {
+  startHideTimer();
+  updateProgressTimer(videoId, username);
+}
+
+function updateProgressTimer(videoId, username) {
+  addDuration(videoId, username);
+}
+
+function addDuration() {
+  
+}
