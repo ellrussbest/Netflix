@@ -7,7 +7,8 @@
 
     $video = new Video($con, $_GET["id"]);
     $video->incrementViews();
-    
+
+    $upNextVideo = VideoProvider::getUpNext($con, $video);
     
 ?>
 
@@ -20,6 +21,20 @@
             </button>
             <h1><?php echo $video->getTitle() ?></h1>
         </div>
+
+        <div class="videoControls upNext">
+            <button> 
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+            <div class="upNextContainer"> 
+                <h2>Up next:<h2>
+                <h3><?php echo $upNextVideo->getTitle(); ?> </h3>
+                <h3><?php echo $upNextVideo->getSeasonAndEpisode(); ?> </h3>
+                <button class="playNext"> 
+                    <i class="fa-solid fa-play"></i> Play
+                </button>
+            </div>
+        </div>
     </div>
     <video controls autoplay>
         <source src='<?php echo $video->getFilepath()?>' type='video/mp4' />
@@ -27,6 +42,5 @@
 </div>
 
 <script>
-
     initVideo("<?php echo $video->getId(); ?>", "<?php echo $userLoggedIn; ?>")
 </script>
