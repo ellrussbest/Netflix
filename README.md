@@ -68,3 +68,17 @@
 - To make suggestions, we are going to pull all thumbnails of movies and videos etc. of the catgories with the same entity Id
 
 - we create a videoProgress table that will keep the progress of the user as they watch a particular video
+
+## displaying the current movie and episode that the user is watching
+- we have to select video from the progress from video and from that video we want to get it's entity.
+- so we have to backtrack using the video id and get it's entitity and from the list of the enitites that are listed we are 
+- supposed to get the video with the latest modification. i.e. a video that was interacted with soonest enough e.g.
+
+```
+SELECT videoId FROM `videoProgress` INNER JOIN videos
+ON videoprogress.videoId = videos.id
+WHERE vides.entityId = 82
+AND videoProgress.username = 'reece-kenney'
+ORDER BY videoProgress.dateModified DESC
+LIMIT 1
+```

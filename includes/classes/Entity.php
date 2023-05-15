@@ -48,7 +48,7 @@
                 $query->bindValue(":id", $this->getId());
                 $query->execute();
                 
-                $season = array();
+                $seasons = array();
                 $videos = array();
                 $currentSeason = null;
 
