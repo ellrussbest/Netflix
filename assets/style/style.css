@@ -149,6 +149,12 @@ a {
   margin: 15px 0;
 }
 
+.previewOverlay .mainDetails h4 {
+  color: #fff;
+  font-size: 20px;
+  margin: 15px 0;
+}
+
 .previewOverlay .mainDetails {
   position: relative;
   top: 35%;
@@ -223,6 +229,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 230px;
+  position: relative;
 }
 
 .episodeContainer img {
@@ -292,4 +299,12 @@ a {
 
 i {
   color: #fff;
+}
+
+.seen{
+  color: #2ecc71;
+  font-size: 26px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }

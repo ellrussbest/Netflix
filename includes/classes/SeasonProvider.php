@@ -41,6 +41,7 @@
             $title = $video->getTitle();
             $description = $video->getDescription();
             $episodeNumber = $video->getEpisodeNumber();
+            $hasSeen = $video->hasSeen($this->username) ? "<i class='fa-solid fa-circle-check seen'></i>" : "";
             
             
             $filepath = $video->getFilepath();
@@ -54,7 +55,7 @@
                             <h4>$episodeNumber. $title</h4>
                             <span>$description</span>
                         </div>
-                        
+                        $hasSeen
                     </div>
                 </div>
             </a>";
