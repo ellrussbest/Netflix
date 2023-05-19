@@ -1,3 +1,15 @@
+// `scrollTop()` function is used within a `scroll` event handler to get the current vertical position 
+// of the scroll bar whenever the user scrolls the page.
+$(document).scroll(() => {
+
+  // this function basically checks whether the position of the scroll has exceeded the height of 
+  // the div with the class .topBar
+  // and when this happens we toggle the scrolled class depending on whether the conditon is true or false
+  let isScrolled = $(this).scrollTop() > $(".topBar").height();
+  $(".topBar").toggleClass("scrolled", isScrolled);
+})
+
+
 function volumeToggle(button) {
   var muted = $(".previewVideo").prop("muted");
   $(".previewVideo").prop("muted", !muted);
