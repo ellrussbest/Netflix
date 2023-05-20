@@ -356,3 +356,7 @@ i {
   background-color: #141414;
   transition: background-color 200ms linear;
 }
+
+.previewCategories h1 {
+  color: #e5e5e5;
+}

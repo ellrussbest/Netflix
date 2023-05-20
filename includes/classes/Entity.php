@@ -8,7 +8,7 @@
                 // if entity is passed explicitly
                 if(is_array($entity)) {
                     $this->sqlData = $entity;
-                }else if(is_string($entity)) {
+                }else if(is_string($entity) || is_int($entity)) {
                     $query = $this->con->prepare("SELECT * FROM entities WHERE id=:id");
                     $query->bindValue(":id", $entity, PDO::PARAM_INT);
                     $query->execute();

@@ -8,7 +8,7 @@
             // if entity is passed explicitly as an object
             if(is_array($entity)) {
                 $this->sqlData = $entity;
-            }else if(is_string($entity)) { // entity passed as an ID
+            }else if(is_string($entity) || is_int($entity)) { // entity passed as an ID
                 $query = $this->con->prepare("SELECT * FROM videos WHERE id=:id");
                 $query->bindValue(":id", $entity, PDO::PARAM_INT);
                 $query->execute();
