@@ -1,4 +1,5 @@
 ## Explanation of the database structure
+## For us to best understand the how we can filter data from our databases it's best we understand the set theory [SET THEORY](https://math24.net/set-operations-venn-diagrams.html)
 
 - On the top level we have Videos.
 - A video has an Id, title, description, filepath, isMovie, uploadDate, releaseDate, views, duration, season, episode and entityId
@@ -82,3 +83,28 @@ AND videoProgress.username = 'reece-kenney'
 ORDER BY videoProgress.dateModified DESC
 LIMIT 1
 ```
+
+```
+    1. <b>AND</b> operator: The <b>intersection</b> of the circles representing A and B, denoted by A ∧ B. Also known as <b>conjunction</b>.
+
+    2. <b>OR</b> operator: The <b>union</b> of the circles representing A and B, denoted by A ∨ B. Also known as <b>disjunction</b>.
+
+    3. <b>NOT</b> operator: The <b>complement</b> of the circle representing A, denoted by ¬A. Also known as negation.
+
+    4. <b>XOR</b> operator: The shaded area that is inside A but outside B, or vice versa, denoted by A ⊕ B. Also known as <b>exclusive disjunction</b>.
+
+    5. <b>NAND</b> operator: The complement of the intersection of the circles representing A and B, denoted by ¬(A ∧ B). Also known as not <b>conjunction</b>.
+
+    6. <b>NOR</b> operator: The complement of the union of the circles representing A and B, denoted by ¬(A ∨ B). Also known as <b>not disjunction</b>.
+
+    7. <b>XNOR</b> operator: The shaded area that is inside both A and B, or outside both A and B, denoted by A ≡ B. Also known as <b>equivalence</b>.
+
+    Note that the Venn diagrams for the XOR and XNOR operators are a bit more complex than the others, since they involve shading areas that are inside one circle but outside the other.
+```
+
+## SEARCH
+- we want to perfom the search everytime a user keys in an input and pauses after 5ms
+- we don't want to create a request each and every time there's  a change because this could
+- create a lot of requests.
+- so the best solution is any time a user keys in a input and pauses for five seconds, then we make a request.
+- this can be achieved by setTimeout()
