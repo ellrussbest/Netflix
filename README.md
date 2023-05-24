@@ -108,3 +108,15 @@ LIMIT 1
 - create a lot of requests.
 - so the best solution is any time a user keys in a input and pauses for five seconds, then we make a request.
 - this can be achieved by setTimeout()
+
+## paypal integration
+- you first need to download the paypal php sdk
+- after extracting the compressed folder, you can add it to the root of you project
+- you can then go ahead to and create a pyapal config file where you can add all the paypal configurations through this file
+- then go to developer.paypal.com
+- create an app where you'll be given an app account, secret and a client ID
+- you can now google the paypal developer api and 
+- we are then required to create a paypal billing plan (names, descriptions, how often the transaction should happen, price etc.)
+- after creating a billing plan we can then create a billing agreement
+- billing agreement will be used to make a transaction based on the billing agreement.
+- when a user cancels their subscription, we can keep tab of that using the paypal webhook
